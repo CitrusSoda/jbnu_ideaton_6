@@ -16,17 +16,24 @@ def recognition(audio_path):
         '/Users/muneung/Downloads/chromedriver', chrome_options=options)
     driver.get('https://nid.naver.com/nidlogin.login')
     driver.set_window_size(1920, 1080)
+
     time.sleep(3)
 
-    uid = ''  # 네이버 id
-    upw = ''  # 네이버 pw
+    uid = ''  # 네이버 아이디
+    upw = ''  # 네이버 패스워드
 
     driver.find_element_by_name('id').click()
+    time.sleep(0.5)
     pyperclip.copy(uid)
+    time.sleep(0.5)
     driver.find_element_by_name('id').send_keys(Keys.COMMAND, 'v')
 
+    time.sleep(1)
+
     driver.find_element_by_name('pw').click()
+    time.sleep(0.5)
     pyperclip.copy(upw)
+    time.sleep(0.5)
     driver.find_element_by_name('pw').send_keys(Keys.COMMAND, 'v')
 
     driver.find_element_by_xpath('//*[@id="log.login"]').click()
